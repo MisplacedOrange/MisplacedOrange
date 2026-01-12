@@ -8,4 +8,4 @@ My main stack right now is **Python, React, and Tailwind**, and currently learni
 
 If you’re curious about how I build, feel free to check out my projects or reach out!
 
-![MisplacedOrange's Github Stats](https://github-readme-stats-six-gilt-21.vercel.app/api?username=misplacedorange&show_icons=true&show=reviews,discussions_started,discussions_answered,prs_merged,prs_merged_percentage&count_private=true&include_all_commits=true&theme=blue-green)<br>
+![MisplacedOrange's Github Stats](https://github-readme-stats-six-gilt-21.vercel.app/api?username=misplacedorange&show_icons=true&show=reviews,discussions_started,discussions_answered,prs_merged,prs_merged_percentage&count_private=true&include_all_commits=true&theme=orange-orange)<br>
