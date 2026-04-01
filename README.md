@@ -2,7 +2,7 @@
 
 ### Hey there!
 
-I'm Roy, an aspiring Cloud Computer based in Ontario.
+I'm Roy, an aspiring AI engineer based in Ontario.
 
 If you’re curious about how I build, feel free to check out my projects or reach out!
 
