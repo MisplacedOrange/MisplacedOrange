@@ -1,0 +1,106 @@
+@font-face {
+  font-family: "Cabinet Grotesk";
+  src:
+    local("Cabinet Grotesk"),
+    local("CabinetGrotesk");
+  font-display: swap;
+}
+
+:root {
+  color-scheme: dark;
+  font-family:
+    "Cabinet Grotesk",
+    "Neue Montreal",
+    "Aptos",
+    "Inter",
+    system-ui,
+    sans-serif;
+  background: #0a4a5e;
+  /* Bright ink for legibility over deep, clear water. */
+  --ink: #e9fbff;
+  --ink-soft: rgba(233, 251, 255, 0.7);
+  --motion: cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  width: 100%;
+  min-width: 320px;
+  height: 100%;
+  min-height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+body {
+  background: #0a4a5e;
+}
+
+#app {
+  position: fixed;
+  inset: 0;
+  isolation: isolate;
+}
+
+.aquarium-canvas {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: crosshair;
+  touch-action: none;
+  z-index: 0;
+}
+
+/* Visually hidden but available to screen readers / search engines. */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---- Content stage: floats above the water, but lets pointer events through
+   to the canvas everywhere except on actual interactive elements. ---- */
+.stage {
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  padding: clamp(1.4rem, 3.5vw, 2.8rem);
+  color: var(--ink);
+  pointer-events: none;
+}
+
+.stage a,
+.stage button {
+  pointer-events: auto;
+}
+
+/* Invisible click targets overlaid on the refracted social pills in the
+   hero texture. Transparent to the eye but real anchors for cursor and keyboard. */
+.social-hit {
+  position: fixed;
+  opacity: 0;
+  cursor: pointer;
+  border-radius: 999px;
+  pointer-events: auto;
+}
+
+.social-hit:focus-visible {
+  opacity: 1;
+  outline: 2px solid rgba(233, 251, 255, 0.85);
+  outline-offset: 3px;
+}
