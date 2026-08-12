@@ -1,4 +1,4 @@
-"He who learns but does not think, is **lost.**"
+水滴石穿
 
 ### Hey there!
 
