@@ -64,21 +64,19 @@ export function App() {
               <p>BASED IN Ontario, Canada</p>
             </div>
 
-            <div className="orange-landing__visual">
-              <button
-                className="orange-landing__fruit-button"
-                type="button"
-                aria-label="Spin the orange"
-                onClick={() => setSpinCount((current) => current + 1)}
-              >
-                <img
-                  key={spinCount}
-                  className={`orange-landing__fruit${spinCount > 0 ? " is-spinning" : ""}`}
-                  src="/orange.png"
-                  alt="A smiling giant orange with a green leaf"
-                />
-              </button>
-            </div>
+            <button
+              className="orange-landing__fruit-button"
+              type="button"
+              aria-label="Spin the orange"
+              onClick={() => setSpinCount((current) => current + 1)}
+            >
+              <img
+                key={spinCount}
+                className={`orange-landing__fruit${spinCount > 0 ? " is-spinning" : ""}`}
+                src="/orange.png"
+                alt="A smiling giant orange with a green leaf"
+              />
+            </button>
           </section>
         </main>
       </div>
