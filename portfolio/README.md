@@ -1,20 +1,14 @@
-# MisplacedOrange
+# Roy Lu's portfolio
 
-A single, orange-focused landing page for [MisplacedOrange](https://github.com/MisplacedOrange).
+A personal portfolio with a short biography and selected-project rows styled after [Dun Li Chan's site](https://dunlichan.com/#index). The `entity-link` class gives project and company links pastel orange highlights; navigation and profile links stay neutral. Unboxed social icons follow [Kyaw's site](https://kyswtn.com/) and stay fixed at the bottom left. Includes dark and light themes. The supplied 卢 SVG is the favicon.
 
 ## Run locally
+
+Typography uses VS Code's Windows editor font stack: Consolas, Courier New, monospace.
 
 ```bash
 npm install
 npm run dev
 ```
 
-The portfolio runs at `http://localhost:5173/`.
-
-Create a production build with `npm run build`.
-
-## Design notes
-
-- Warm paper, orange ink, and a giant smiling fruit
-- Responsive hero composition with reduced-motion support
-- No project list, footer, or secondary content on the landing page
+Open `http://127.0.0.1:5173/`. Run `npm run build` to generate the production site in `dist/`.
