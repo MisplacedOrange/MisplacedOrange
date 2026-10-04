@@ -1,6 +1,6 @@
 # Roy Lu's portfolio
 
-A personal portfolio with a short biography and selected-project rows styled after [Dun Li Chan's site](https://dunlichan.com/#index). The `entity-link` class gives project and company links pastel orange highlights; navigation and profile links stay neutral. Unboxed social icons follow [Kyaw's site](https://kyswtn.com/) and stay fixed at the bottom left. Includes dark and light themes. The supplied 卢 SVG is the favicon.
+A personal portfolio with a short biography and selected-project rows styled after [Dun Li Chan's site](https://dunlichan.com/#index). The `entity-link` class gives project and company links pastel orange highlights; navigation and profile links stay neutral. Unboxed social icons follow [Kyaw's site](https://kyswtn.com/) and stay fixed at the bottom left. Uses a dark theme. The supplied 卢 SVG is the favicon.
 
 ## Run locally
 

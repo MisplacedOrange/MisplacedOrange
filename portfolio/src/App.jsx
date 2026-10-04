@@ -1,5 +1,3 @@
-import { useEffect, useState } from "react";
-
 const socials = [
   {
     label: "GitHub",
@@ -51,19 +49,6 @@ function ExternalLink({ children, ...props }) {
 }
 
 export function App() {
-  const [theme, setTheme] = useState(() => document.documentElement.dataset.theme || "dark");
-
-  const nextTheme = theme === "dark" ? "light" : "dark";
-
-  useEffect(() => {
-    document.documentElement.dataset.theme = theme;
-    try {
-      localStorage.setItem("portfolio-theme", theme);
-    } catch {
-      // The theme still works when browser storage is unavailable.
-    }
-  }, [theme]);
-
   return (
     <>
       <a className="skip-link" href="#main-content">Skip to content</a>
@@ -72,24 +57,6 @@ export function App() {
           <a href="#about">about</a>
           <a href="#projects">projects</a>
         </nav>
-        <button
-          className="theme-toggle"
-          type="button"
-          aria-label={`Switch to ${nextTheme} mode`}
-          onClick={() => setTheme(nextTheme)}
-        >
-          <svg viewBox="0 0 20 20" aria-hidden="true">
-            <circle
-              cx="10"
-              cy="10"
-              r="6.5"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.3"
-            />
-            <path d="M10 3.5a6.5 6.5 0 0 0 0 13Z" fill="currentColor" />
-          </svg>
-        </button>
       </header>
 
       <main className="profile" id="main-content">
