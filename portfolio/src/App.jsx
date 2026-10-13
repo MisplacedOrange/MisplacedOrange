@@ -1,3 +1,49 @@
+import { useEffect, useState } from "react";
+
+let visitCountRequest;
+
+function loadVisitCount() {
+  if (!visitCountRequest) {
+    const url = new URL("https://counterapi.com/api/misplacedorange.me/view/portfolio");
+    const isLiveSite = ["misplacedorange.me", "www.misplacedorange.me"].includes(window.location.hostname);
+    if (!isLiveSite) url.searchParams.set("readOnly", "true");
+
+    visitCountRequest = fetch(url, {
+      cache: "no-store",
+      signal: AbortSignal.timeout(8000),
+    }).then(async (response) => {
+      if (!response.ok) throw new Error("Visit counter unavailable");
+      const { value } = await response.json();
+      if (!Number.isSafeInteger(value) || value < 0) throw new Error("Invalid visit count");
+      return value;
+    });
+  }
+  return visitCountRequest;
+}
+
+function VisitCounter() {
+  const [count, setCount] = useState(null);
+  const [unavailable, setUnavailable] = useState(false);
+
+  useEffect(() => {
+    let active = true;
+    loadVisitCount().then(
+      (value) => { if (active) setCount(value); },
+      () => { if (active) setUnavailable(true); },
+    );
+    return () => { active = false; };
+  }, []);
+
+  return (
+    <div className="visit-counter" title={unavailable ? "visit counter unavailable" : "total site visits"}>
+      <span>oranges </span>
+      <span className="visit-count" aria-live="polite" aria-label={unavailable ? "visit count unavailable" : undefined}>
+        {unavailable ? "—" : count === null ? "…" : count.toLocaleString("en-CA")}
+      </span>
+    </div>
+  );
+}
+
 const socials = [
   {
     label: "GitHub",
@@ -18,25 +64,18 @@ const socials = [
 
 const projects = [
   {
-    name: "a",
-    category: "b",
-    description: "c",
-    technology: "d",
-    href: "e",
-  },
-  {
     name: "Octavius",
-    category: "Hardware",
-    description: "tbd",
-    technology: "tbd or sum",
-    href: "",
+    category: "Hardware | 1st - Huawei OMNI Live Challenge @ Hack the North ‘26",
+    description: "Wearable robotic arm with voice and vision controls, built from cardboard, popsicle sticks, and servos.",
+    technology: "Python, C++, Raspberry Pi, Arduino",
+    href: "https://github.com/savcode066/octavius",
   },
   {
-    name: "tbd ",
-    category: "blud",
-    description: "bluds",
-    technology: "bluddington",
-    href: "https://github.com/MisplacedOrange/",
+    name: "Vantage",
+    category: "Software | National Finalist @ FBLC ’26",
+    description: "A community-focused discovery tool to help users find, rate, and support local small businesses.",
+    technology: "Typescript, React, Python",
+    href: "https://github.com/crackle2k/vantage",
   },
 ];
 
@@ -60,11 +99,14 @@ export function App() {
       </header>
 
       <main className="profile" id="main-content">
-        <h1 id="profile-title">Roy Lu</h1>
+        <div className="profile-heading">
+          <h1 id="profile-title">Roy Lu</h1>
+          <VisitCounter />
+        </div>
 
         <section className="about content-section" id="about" aria-labelledby="about-title">
           <h2 id="about-title">a little about me</h2>
-          <p>Coming soon!</p>
+          <p>based in the greater toronto area. i want to major in computer science and i'm interested in machine learning, robotics, and aerospace.</p>
         </section>
 
         <section className="content-section projects" id="projects" aria-labelledby="projects-title">
@@ -98,9 +140,12 @@ export function App() {
         </section>
 
         <section className="content-section" id="other" aria-labelledby="other-title">
-          <h2 id="other-title">Other</h2>
+          <h2 id="other-title">other</h2>
           <ul className="other-list">
-            <li>Coming soon.</li>
+            <li>air cadet of 3 years, currently a FSgt</li>
+            <li>co-author of a paper at NewInML @ Neurips '26</li>
+            <li>always looking for highschool internships 👀</li>
+            <li>contact me through linkedin or X</li>
           </ul>
         </section>
       </main>

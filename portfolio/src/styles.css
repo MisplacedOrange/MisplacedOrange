@@ -134,6 +134,30 @@ section {
   padding: 1.15rem 0 2.5rem;
 }
 
+.profile-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.visit-counter {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  gap: .3rem;
+  color: var(--muted);
+  font-size: .65rem;
+  white-space: nowrap;
+}
+
+.visit-count {
+  min-width: 1ch;
+  color: var(--fg);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
 h1, h3 {
   margin: 0;
 }
