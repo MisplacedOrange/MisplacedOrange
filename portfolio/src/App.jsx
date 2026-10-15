@@ -5,6 +5,7 @@ let visitCountRequest;
 function loadVisitCount() {
   if (!visitCountRequest) {
     const url = new URL("https://counterapi.com/api/misplacedorange.me/view/portfolio");
+    url.searchParams.set("timeline", "total");
     const isLiveSite = ["misplacedorange.me", "www.misplacedorange.me"].includes(window.location.hostname);
     if (!isLiveSite) url.searchParams.set("readOnly", "true");
 
@@ -145,7 +146,7 @@ export function App() {
             <li>air cadet of 3 years, currently a FSgt</li>
             <li>co-author of a paper at NewInML @ Neurips '26</li>
             <li>always looking for highschool internships 👀</li>
-            <li>contact me through linkedin or X</li>
+            <li>feel free contact me through linkedin or X</li>
           </ul>
         </section>
       </main>
