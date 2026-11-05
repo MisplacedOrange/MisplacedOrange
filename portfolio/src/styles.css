@@ -130,6 +130,10 @@ section {
   line-height: 1.4;
 }
 
+.main-nav .resume-link {
+  margin-left: auto;
+}
+
 .profile {
   padding: 1.15rem 0 2.5rem;
 }

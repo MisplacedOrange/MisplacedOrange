@@ -96,6 +96,7 @@ export function App() {
         <nav className="main-nav" aria-label="Main navigation">
           <a href="#about">about</a>
           <a href="#projects">projects</a>
+          <ExternalLink className="resume-link" href="https://drive.google.com/drive/folders/1klN7GadU8B2gbtlx7ucDg4QaZMcx3Gk2?usp=drive_link">resume</ExternalLink>
         </nav>
       </header>
 
